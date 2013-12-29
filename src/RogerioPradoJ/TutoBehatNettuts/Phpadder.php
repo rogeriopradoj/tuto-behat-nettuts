@@ -16,7 +16,7 @@ class Phpadder
 
     public function add()
     {
-        $this->sum = $this->a = $this->b;
+        $this->sum = $this->a + $this->b;
     }
 
     public function display()
