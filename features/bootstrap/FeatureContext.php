@@ -20,4 +20,23 @@ class FeatureContext extends BehatContext
     {
         $this->adder = new Phpadder($a, $b);
     }
+
+    /**
+     * @When /^I add them together$/
+     */
+    public function iAddThemTogether()
+    {
+        $this->adder->add();
+    }
+
+    /**
+     * @Then /^I should get (\d+)$/
+     */
+    public function iShouldGet($sum)
+    {
+        if ($this->adder->sum != $sum) {
+            throw new Exception("Actual sum: ". $this->adder->sum);
+        }
+        $this->adder->display();
+    }
 }
